@@ -1,3 +1,4 @@
+import { createEvent } from '@testing-library/dom';
 import './article.less'
 // This is the data we will be using to create our articles. Look at it, then proceed to line 93.
 // OPTIONAL: if you're feeling adventurous, try to make this data an export from a different module, and import it here.
@@ -96,11 +97,31 @@ const data = [
   and returns a DOM node looking like the one below:
 */
 
-function articleMaker() {
-  
+function articleMaker(articleObj) {
+  const articleDiv = document.createElement('div');
+  const articleH2 = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const articlePOne = document.createElement('p');
+  const articlePTwo = document.createElement('p');
+  const articlePThree = document.createElement('p');
+  const articleSpan = document.createElement('span')
+
+  articleDiv.classList.add('article');
+  articleDate.classList.add('date');
+  articleSpan.classList.add('expandButton');
+
+  articleH2.textContent = data.title
+
+  articleSpan.addEventListener('click', () => {
+      articleDiv.toggle('article-open');
+  })
+
+  return articleDiv
 }
 
-
+data.forEach(arry => {
+  return articleMaker(data)
+})
 
  /* 
   <div class="article">
