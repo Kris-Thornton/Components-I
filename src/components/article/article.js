@@ -88,6 +88,14 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+
+
+  {
+    title: "Kris's Adventure Around EveryWhere",
+    date: "March 3rd, 2023",
+    firstParagraph: `I started at the bottom of a hill, looking up. It was a steap hill indeed. How was I to Make it over or around to the other side faster than any of the other teams`,
+    secondParagraph: `My first thought was to go back to what I learned at BloomTech and break the problem down into smaller parts. Doing it this way, would surley give me success.`
   }
 ];
 
@@ -110,18 +118,43 @@ function articleMaker(articleObj) {
   articleDate.classList.add('date');
   articleSpan.classList.add('expandButton');
 
-  articleH2.textContent = data.title
+  articleDiv.appendChild(articleH2);
+  articleDiv.appendChild(articleDate);
+  articleDiv.appendChild(articlePOne);
+  articleDiv.appendChild(articlePTwo)
+  articleDiv.appendChild(articlePThree)
+  articleDiv.appendChild(articleSpan)
+
+  
+
+  articleH2.textContent = articleObj.title;
+  articleDate.textContent = articleObj.date;
+  articlePOne.textContent = articleObj.firstParagraph;
+  articlePTwo.textContent = articleObj.secondParagraph;
+  articlePThree.textContent = articleObj.thirdParagraph;
+  articleSpan.textContent = "+";
+
+  
+
 
   articleSpan.addEventListener('click', () => {
-      articleDiv.toggle('article-open');
+      articleDiv.classList.toggle('article-open');
   })
 
   return articleDiv
 }
 
+document.querySelector('.articles').appendChild(articleMaker(data))
+
+// articleMaker();
+
+
 data.forEach(arry => {
-  return articleMaker(data)
+  document.querySelector('div.articles').appendChild(articleMaker(arry));
 })
+
+
+
 
  /* 
   <div class="article">
