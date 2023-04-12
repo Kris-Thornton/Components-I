@@ -94,7 +94,15 @@ const data = [
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
+*/
 
+function articleMaker() {
+  
+}
+
+
+
+ /* 
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
